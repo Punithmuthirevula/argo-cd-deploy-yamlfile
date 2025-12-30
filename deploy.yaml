@@ -14,6 +14,8 @@ spec:
       labels:
         app: my-java-webapp
     spec:
+      imagePullSecrets:
+        - name: my-registry-secret
       containers:
         - name: my-java-webapp
           image: puneethuserdoc/my-java-webapp:latest
@@ -26,5 +28,16 @@ spec:
             limits:
               cpu: "500m"
               memory: "512Mi"
-      imagePullSecrets:
-        - name: my-registry-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-java-webapp-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: my-java-webapp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
