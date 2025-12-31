@@ -16,6 +16,6 @@ spec:
         - name: regcred
       containers:
         - name: my-java-webapp
-          image: nexus.sk-devops.com:8082/docker-sk-devops/my-java-webapp:latest
+          image: docker-repo.sk-devops.com/puneeth_nexus_push/my-java-webapp:v27
           ports:
             - containerPort: 8080
