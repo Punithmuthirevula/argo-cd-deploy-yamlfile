@@ -4,7 +4,7 @@ metadata:
   name: my-java-webapp
   namespace: default
 spec:
-  replicas: 2
+  replicas: 8
   selector:
     matchLabels:
       app: my-java-webapp
